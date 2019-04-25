@@ -14,6 +14,7 @@
     "prepublishOnly": "yarn test && npm run lint",
     "preversion": "yarn run lint",
     "test": "jest --config jestConfig.json",
+    "test-watch": "jest --watch --config jestConfig.json",
     "version": "yarn run format && git add -A src",
     "postversion": "git push && git push --tags"
   },
