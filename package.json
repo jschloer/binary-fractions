@@ -8,17 +8,20 @@
   ],
   "scripts": {
     "build": "tsc",
-    "test": "jest --config jestConfig.json",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
-    "lint": "tslint -p tsconfig.json"
+    "lint": "tslint -p tsconfig.json",
+    "prepare": "yarn run build",
+    "prepublishOnly": "yarn test && npm run lint",
+    "preversion": "yarn run lint",
+    "test": "jest --config jestConfig.json",
+    "version": "yarn run format && git add -A src",
+    "postversion": "git push && git push --tags"
   },
   "repository": {
     "type": "git",
     "url": "ssh+git://git@github.com/jschloer/binary-fractions.git"
   },
   "keywords": [
-    "binary",
-    "fraction",
     "binary",
     "fraction"
   ],
